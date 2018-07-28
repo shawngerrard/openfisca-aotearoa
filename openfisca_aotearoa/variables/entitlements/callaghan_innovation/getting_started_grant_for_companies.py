@@ -45,6 +45,6 @@ class getting_started_entitlement_for_company(Variable):
 
 	def formula(company, period, parameters):
 		return select(
-			[getting_started_research_expenditure_for_company <= parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_entitlement_threshold, getting_started_research_expenditure_for_company > parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_entitlement_threshold],
+			[getting_started_research_expenditure_for_company <= parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_maximum_threshold, getting_started_research_expenditure_for_company > parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_maximum_threshold],
 			[getting_started_research_expenditure_for_company * parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_entitlement_rate, 5000]
 		)

@@ -6,7 +6,7 @@ from openfisca_core.model_api import *
 from openfisca_aotearoa.entities import Person, Company
 
 
-class getting_started_years_in_business(Variable):
+class getting_started_years_in_business_for_company(Variable):
         value_type = int
         entity = Company
         default_value = 0
@@ -15,7 +15,7 @@ class getting_started_years_in_business(Variable):
         reference = "Needs updating"
 	
 
-class getting_started_eligible_for_grant(Variable):
+class getting_started_eligible_for_grant_for_company(Variable):
 	value_type = bool
 	entity = Company
 	definition_period = YEAR

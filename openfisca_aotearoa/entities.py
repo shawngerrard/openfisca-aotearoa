@@ -83,4 +83,59 @@ Family = build_entity(
         ]
     )
 
-entities = [Titled_Property, Person, Family]
+Company = build_entity (
+	key="company",
+	plural="companies",
+	label=u'Company',
+	doc='''
+	A company represents a collection of individuals.
+
+	Company entities are required to calculate the entitlements to various Callaghan grants.
+
+	A company can contain roles such as 'Shareholder' & 'Director'.
+
+	For more information on entities, see: http://openfisca.org/doc/coding-the-legislation/50_entities.html
+	
+	Companies can have multiple shareholders and directors.
+    ''',
+	roles=[
+		{
+		'key': 'director',
+		'plural':'directors',
+		'label': u'Director',
+		'doc': u'People who hold directorship for a company'
+		},
+		{
+		'key':'shareholder',
+		'plural': 'shareholders',
+		'label': u'Shareholder',
+		'doc': u'People who own shares in a company'
+		}
+	]
+)
+
+Partnership = build_entity (
+	key="partnership",
+	plural="partnerships",
+	label=u'Partnership',
+	doc='''
+	A partnership represents two persons who are treated as a single partnership entity.
+
+	Partnership entities are required to calculate the entitlements to various Callaghan grants.	
+
+	A partnership will contain the role 'Partner'.
+
+	Only two partners can form a partnership
+	''',
+	roles=[
+		{
+		'key':'partner',
+		'plural':'partners',
+		'label':u'partner',
+		'max':2,
+		'doc':u'People who are partners of the partnership'		
+		}
+	]
+)
+
+entities = [Titled_Property, Person, Family, Company, Partnership]

@@ -26,7 +26,6 @@ class getting_started_years_in_business(Variable):
 class getting_started_eligible_for_grant(Variable):
 	value_type = bool
 	entity = Company
-	default_value = false
 	definition_period = YEAR
 	label = u'Determines if the company is eligible for a getting started grant'
 	reference = "Needs updating"

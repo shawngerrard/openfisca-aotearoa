@@ -9,7 +9,6 @@ from openfisca_aotearoa.entities import Person, Company
 class getting_started_first_time_in_business(Variable):
         value_type = bool
         entity = Company
-        default_value = false
         definition_period = YEAR
         label = u'Is a company classified as eligible to the getting started grant'
         reference = "Needs updating"

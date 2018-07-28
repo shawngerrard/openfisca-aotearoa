@@ -6,14 +6,6 @@ from openfisca_core.model_api import *
 from openfisca_aotearoa.entities import Person, Company
 
 
-class getting_started_first_time_in_business(Variable):
-        value_type = bool
-        entity = Company
-        definition_period = YEAR
-        label = u'Is a company classified as eligible to the getting started grant'
-        reference = "Needs updating"
-
-
 class getting_started_years_in_business(Variable):
         value_type = int
         entity = Company
@@ -31,7 +23,7 @@ class getting_started_eligible_for_grant(Variable):
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("getting_started_first_time_in_business", period)       
+		return companies("getting_started_years_in_business", period) == 1       
 
 
 class getting_started_entitlement_for_company(Variable):

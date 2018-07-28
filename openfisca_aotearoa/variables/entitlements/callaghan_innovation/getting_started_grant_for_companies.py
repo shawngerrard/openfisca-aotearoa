@@ -23,7 +23,7 @@ class getting_started_eligible_for_grant_for_company(Variable):
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("getting_started_years_in_business", period) == 1       
+		return companies("getting_started_years_in_business_for_company", period) == 1       
 
 
 class getting_started_entitlement_for_company(Variable):

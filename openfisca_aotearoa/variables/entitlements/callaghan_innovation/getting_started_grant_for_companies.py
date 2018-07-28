@@ -39,7 +39,7 @@ class getting_started_entitlement_for_company(Variable):
 	value_type = float
 	entity = Company
 	default_value = 0
-	apportioned_amount = getting_started_research_expenditure_for_company * parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_entitlement_rate
+	apportioned_amount = getting_started_research_expenditure_for_company * parameters.entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_entitlement_rate
 	definition_period = YEAR
 	label = u'Determines the entitlement of the getting started grant'
 	reference = "Needs updating"

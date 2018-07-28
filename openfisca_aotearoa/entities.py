@@ -138,4 +138,44 @@ Partnership = build_entity (
 	]
 )
 
-entities = [Titled_Property, Person, Family, Company, Partnership]
+
+Maori_Authority = build_entity (
+	key="maori_authority",
+	plural="maori_authorities",
+	label=u'maori_authorities',
+	doc='''
+	A Maori Authority represents an incorporation or trust established under the Te Ture Whenua Maori Act or to manage Treaty of Waitangi settlements, or a Maori statutory body or business controlled by any of these entities.
+
+	Maori authority entities are required to calculate the entitlements to various Callaghan grants.	
+
+	A Maori Authority will contain the roles 'Trustee', 'Beneficiary', 'Director', or 'Shareholder'.
+	''',
+	roles=[
+		{
+		'key':'trustee',
+		'plural':'trustees',
+		'label':u'trustee',
+		'doc':u'People who are trustees of the Authority'		
+		},
+		{
+		'key':'beneficiary',
+		'plural':'beneficiaries',
+		'label':u'beneficiary',
+		'doc':u'People who are beneficiaries of the Authority'		
+		},
+		{
+		'key':'director',
+		'plural':'directors',
+		'label':u'director',
+		'doc':u'People who are directors of the Authority'		
+		},
+		{
+		'key':'shareholder',
+		'plural':'shareholders',
+		'label':u'shareholder',
+		'doc':u'People who are shareholders of the Authority'		
+		}
+	]
+)
+
+entities = [Titled_Property, Person, Family, Company, Partnership, Maori_Authority]

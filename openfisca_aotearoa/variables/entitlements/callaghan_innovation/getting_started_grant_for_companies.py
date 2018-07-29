@@ -47,4 +47,4 @@ class getting_started_entitlement_for_company(Variable):
 		rate = parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_entitlement_rate
 return rate
 #apportioned_amount = 12000.00 * rate
-#return select([getting_started_research_expenditure_for_company <= parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_maximum_threshold, getting_started_research_expenditure_for_company > parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_maximum_threshold],[apportioned_amount, 5000])
+#return select([getting_started_research_expenditure_for_company <= parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_maximum_threshold,getting_started_research_expenditure_for_company > parameters(period).entitlements.callaghan_innovation.getting_started_grant.getting_started_grant_maximum_threshold],[apportioned_amount, 5000])

@@ -90,5 +90,5 @@ class growth_entitlement_for_company(Variable):
 
 	def formula(company, period, parameters):
 		rate = parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_entitlement_rate
-		apportioned_amount = company('growth_research_expenditure_for_company',period) * rate
-		return select([company('growth_research_expenditure_for_company',period) <= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold,company('growth_research_expenditure_for_company',period) > parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold],[apportioned_amount, 5000000])
+		apportioned_amount = company('growth_rnd_expenditure_nongovernment_funds',period) * rate
+		return select([company('growth_rnd_expenditure_nongovernment_funds',period) <= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold,company('growth_rnd_expenditure_nongovernment_funds',period) > parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold],[apportioned_amount, 5000000])

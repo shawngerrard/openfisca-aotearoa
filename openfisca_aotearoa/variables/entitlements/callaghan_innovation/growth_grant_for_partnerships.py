@@ -23,7 +23,7 @@ class growth_eligible_years_in_business_for_partnership(Variable):
         reference = "Needs updating"
 	
 	def formula(companies, period):
-		return companies("growth_years_in_business_for_partnership", period) > 2
+		return partnerships("growth_years_in_business_for_partnership", period) > 2
 
 
 # *******************************
@@ -44,7 +44,7 @@ class growth_eligible_rnd_expenditure_nongovernment_funds_for_partnership(Variab
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_rnd_expenditure_nongovernment_funds_for_partnership") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_minimum_eligible_rnd_expediture_nongovernment_funds
+		return partnerships("growth_rnd_expenditure_nongovernment_funds_for_partnership") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_minimum_eligible_rnd_expediture_nongovernment_funds
 		
 
 # *******************************
@@ -66,7 +66,7 @@ class growth_eligible_percentage_rnd_expenditure_of_revenue_for_partnership(Vari
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_percentage_rnd_expenditure_of_revenue_for_partnership") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_rnd_percentage_of_revenue
+		return partnerships("growth_percentage_rnd_expenditure_of_revenue_for_partnership") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_rnd_percentage_of_revenue
 
 
 class growth_eligible_for_grant_for_partnership(Variable):
@@ -77,7 +77,7 @@ class growth_eligible_for_grant_for_partnership(Variable):
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_eligible_years_in_business_for_partnership", period) * companies("growth_eligible_rnd_expenditure_nongovernment_funds_for_partnership", period) * companies("growth_eligible_percentage_rnd_expenditure_of_revenue_for_partnership", period) == 1
+		return partnerships("growth_eligible_years_in_business_for_partnership", period) * partnerships("growth_eligible_rnd_expenditure_nongovernment_funds_for_partnership", period) * partnerships("growth_eligible_percentage_rnd_expenditure_of_revenue_for_partnership", period) == 1
 
 	
 class growth_entitlement_for_partnership(Variable):

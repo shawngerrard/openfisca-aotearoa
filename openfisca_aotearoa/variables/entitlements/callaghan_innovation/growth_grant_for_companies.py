@@ -80,7 +80,7 @@ class growth_eligible_for_grant_for_company(Variable):
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_eligible_years_in_business_for_company", period, "growth_eligible_rnd_expenditure_nongovernment_funds", period, * "growth_eligible_percentage_rnd_expenditure_of_revenue", period) == 1
+		return companies("growth_eligible_years_in_business_for_company", period) * companies("growth_eligible_rnd_expenditure_nongovernment_funds", period) * companies("growth_eligible_percentage_rnd_expenditure_of_revenue", period) == 1
 
 	
 class growth_entitlement_for_company(Variable):

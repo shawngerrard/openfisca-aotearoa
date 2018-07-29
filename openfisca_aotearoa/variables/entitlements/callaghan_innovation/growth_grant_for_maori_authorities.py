@@ -3,11 +3,11 @@
 # Import from openfisca-core the common python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the entities specifically defined for this tax and benefit system
-from openfisca_aotearoa.entities import Person, Company
+from openfisca_aotearoa.entities import Person, Maori_Authority
 
 
 
-class growth_years_in_business_for_company(Variable):
+class growth_years_in_business_for_maori_authorities(Variable):
         value_type = int
         entity = Company
         default_value = 0
@@ -15,7 +15,7 @@ class growth_years_in_business_for_company(Variable):
         label = u'The amount of years a company has been in business'
         reference = "Needs updating"
 
-class growth_eligible_years_in_business_for_company(Variable):
+class growth_eligible_years_in_business_for_maori_authorities(Variable):
         value_type = bool
         entity = Company
         definition_period = YEAR
@@ -23,12 +23,12 @@ class growth_eligible_years_in_business_for_company(Variable):
         reference = "Needs updating"
 	
 	def formula(companies, period):
-		return companies("growth_years_in_business_for_company", period) > 2
+		return companies("growth_years_in_business_for_maori_authorities", period) > 2
 
 
 # *******************************
 
-class growth_rnd_expenditure_nongovernment_funds_for_company(Variable):
+class growth_rnd_expenditure_nongovernment_funds_for_maori_authorities(Variable):
 	value_type = float
 	entity = Company
 	default_value = 0
@@ -36,7 +36,7 @@ class growth_rnd_expenditure_nongovernment_funds_for_company(Variable):
 	label = u'Determines R&D expenditure sourced from non-government funds in each of the last two financial years.'
 	reference = "Needs updating"
 
-class growth_eligible_rnd_expenditure_nongovernment_funds_for_company(Variable):
+class growth_eligible_rnd_expenditure_nongovernment_funds_for_maori_authorities(Variable):
 	value_type = bool
 	entity = Company
 	definition_period = YEAR
@@ -44,13 +44,13 @@ class growth_eligible_rnd_expenditure_nongovernment_funds_for_company(Variable):
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_rnd_expenditure_nongovernment_funds_for_company") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_minimum_eligible_rnd_expediture_nongovernment_funds
+		return companies("growth_rnd_expenditure_nongovernment_funds_for_maori_authorities") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_minimum_eligible_rnd_expediture_nongovernment_funds
 		
 
 # *******************************
 
 
-class growth_percentage_rnd_expenditure_of_revenue_for_company(Variable):
+class growth_percentage_rnd_expenditure_of_revenue_for_maori_authorities(Variable):
 	value_type = float
 	entity = Company
 	default_value = 0
@@ -58,7 +58,7 @@ class growth_percentage_rnd_expenditure_of_revenue_for_company(Variable):
 	label = u'Determines percentage of eligible R&D expenditure of their revenue in the last two financial years.'
 	reference = "Needs updating"
 
-class growth_eligible_percentage_rnd_expenditure_of_revenue_for_company(Variable):
+class growth_eligible_percentage_rnd_expenditure_of_revenue_for_maori_authorities(Variable):
 	value_type = bool
 	entity = Company
 	definition_period = YEAR
@@ -66,10 +66,10 @@ class growth_eligible_percentage_rnd_expenditure_of_revenue_for_company(Variable
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_percentage_rnd_expenditure_of_revenue_for_company") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_rnd_percentage_of_revenue
+		return companies("growth_percentage_rnd_expenditure_of_revenue_for_maori_authorities") >= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_rnd_percentage_of_revenue
 
 
-class growth_eligible_for_grant_for_company(Variable):
+class growth_eligible_for_grant_for_maori_authorities(Variable):
 	value_type = bool
 	entity = Company
 	definition_period = YEAR
@@ -77,10 +77,10 @@ class growth_eligible_for_grant_for_company(Variable):
 	reference = "Needs updating"
 
 	def formula(companies, period):
-		return companies("growth_eligible_years_in_business_for_company", period) * companies("growth_eligible_rnd_expenditure_nongovernment_funds_for_company", period) * companies("growth_eligible_percentage_rnd_expenditure_of_revenue_for_company", period) == 1
+		return companies("growth_eligible_years_in_business_for_maori_authorities", period) * companies("growth_eligible_rnd_expenditure_nongovernment_funds_for_maori_authorities", period) * companies("growth_eligible_percentage_rnd_expenditure_of_revenue_for_maori_authorities", period) == 1
 
 	
-class growth_entitlement_for_company(Variable):
+class growth_entitlement_for_maori_authorities(Variable):
 	value_type = float
 	entity = Company
 	default_value = 0
@@ -90,5 +90,5 @@ class growth_entitlement_for_company(Variable):
 
 	def formula(company, period, parameters):
 		rate = parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_entitlement_rate
-		apportioned_amount = company('growth_rnd_expenditure_nongovernment_funds_for_company',period) * rate
-		return select([company('growth_rnd_expenditure_nongovernment_funds_for_company',period) <= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold,company('growth_rnd_expenditure_nongovernment_funds_for_company',period) > parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold],[apportioned_amount, 5000000])
+		apportioned_amount = company('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) * rate
+		return select([company('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) <= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold,company('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) > parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold],[apportioned_amount, 5000000])

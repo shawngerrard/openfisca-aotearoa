@@ -18,7 +18,6 @@ class growth_years_in_business_for_company(Variable):
 class growth_eligible_years_in_business_for_company(Variable):
         value_type = bool
         entity = Company
-        default_value = 0
         definition_period = YEAR
         label = u'Determines if the amount of years company has been in business is eligible'
         reference = "Needs updating"
@@ -40,7 +39,6 @@ class growth_rnd_expenditure_nongovernment_funds(Variable):
 class growth_eligible_rnd_expenditure_nongovernment_funds(Variable):
 	value_type = bool
 	entity = Company
-	default_value = 0
 	definition_period = YEAR
 	label = u'Determines whether the amount R&D expenditure sourced from non-government funds in each of the last two financial years is eligible or not.'
 	reference = "Needs updating"
@@ -63,7 +61,6 @@ class growth_percentage_rnd_expenditure_of_revenue(Variable):
 class growth_eligible_percentage_rnd_expenditure_of_revenue(Variable):
 	value_type = bool
 	entity = Company
-	default_value = 0
 	definition_period = YEAR
 	label = u'Determines whether the amount of R&D expediture percentage is eligible or not.'
 	reference = "Needs updating"

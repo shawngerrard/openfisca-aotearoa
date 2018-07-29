@@ -90,5 +90,5 @@ class growth_entitlement_for_maori_authorities(Variable):
 
 	def formula(Maori_Authority, period, parameters):
 		rate = parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_entitlement_rate
-		apportioned_amount = Maori_Authority('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) * rate
-		return select([Maori_Authority('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) <= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold,Maori_Authority('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) > parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold],[apportioned_amount, 5000000])
+		apportioned_amount = maori_authority('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) * rate
+		return select([maori_authority('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) <= parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold,maori_authority('growth_rnd_expenditure_nongovernment_funds_for_maori_authorities',period) > parameters(period).entitlements.callaghan_innovation.growth_grant.growth_grant_maximum_threshold],[apportioned_amount, 5000000])
